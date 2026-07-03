@@ -58,8 +58,8 @@ get_symm_buffer_size_for_mega_moe(
     const auto input_token_layout = layout::Data(hidden * num_mma_elem_bytes);
     const auto bf16_token_layout = layout::Data(hidden * 2);
     const auto intermediate_token_layout = layout::Data(intermediate_hidden * num_mma_elem_bytes);
-    const auto input_sf_layout = layout::Data(with_sf ? hidden / 32 : 0);
-    const auto intermediate_sf_layout = layout::Data(with_sf ? intermediate_hidden / 32 : 0);
+    const auto input_sf_layout = layout::Data(with_sf ? hidden / 32 : 0, false);
+    const auto intermediate_sf_layout = layout::Data(with_sf ? intermediate_hidden / 32 : 0, false);
     const auto input_topk_idx_layout = layout::Data(num_topk * sizeof(int64_t), false);
     const auto input_topk_weights_layout = layout::Data(num_topk * sizeof(float), false);
     const auto l1_topk_weights_layout = layout::Data(sizeof(float), false);

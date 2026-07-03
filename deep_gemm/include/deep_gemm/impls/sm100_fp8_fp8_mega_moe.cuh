@@ -104,8 +104,8 @@ sm100_fp8_fp8_mega_moe_impl(void* y,
     constexpr auto fp8_token_layout = layout::Data(kHidden);
     constexpr auto bf16_token_layout = layout::Data(kHidden * sizeof(nv_bfloat16));
     constexpr auto fp8_intermediate_token_layout = layout::Data(kIntermediateHidden);
-    constexpr auto fp8_sf_layout = layout::Data(kHidden / 32);
-    constexpr auto fp8_intermediate_sf_layout = layout::Data(kIntermediateHidden / 32);
+    constexpr auto fp8_sf_layout = layout::Data(kHidden / 32, false);
+    constexpr auto fp8_intermediate_sf_layout = layout::Data(kIntermediateHidden / 32, false);
     constexpr auto input_topk_idx_layout = layout::Data(kNumTopk * sizeof(int64_t), false);
     constexpr auto input_topk_weights_layout = layout::Data(kNumTopk * sizeof(float), false);
     constexpr auto l1_topk_weights_layout = layout::Data(sizeof(float), false);
